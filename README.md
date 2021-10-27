@@ -1,40 +1,48 @@
-# java-getting-started
+# spring-mvc-heroku
+A Spring MVC application, which can easily be deployed to Heroku.
 
-A barebones Java app, which can easily be deployed to Heroku.
+This application was created following the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
 
-This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
+## Features
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+You will find in this Maven project:
+
+- Integration with the Web Framework Spring MVC.
+- Configurations done through Java config and annotations.
+- Integration with Thymeleaf templates.
+- Security and authentication with Spring Security.
+
 
 ## Running Locally
 
-Make sure you have Java and Maven installed.  Also, install the [Heroku CLI](https://cli.heroku.com/).
+Make sure you have **Java 8** and **Maven** installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
 ```sh
-$ git clone https://github.com/heroku/java-getting-started.git
-$ cd java-getting-started
-$ mvn install
-$ heroku local:start
+$ git clone https://github.com/gsag/spring-mvc-heroku.git
+$ cd spring-mvc-heroku
+$ ./run.sh
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Your app should now be running on [localhost:9090](http://localhost:9090/).
 
-If you're going to use a database, ensure you have a local `.env` file that reads something like this:
+Ensure you have a local PostgreSQL instance installed for development tests.
 
-```
-JDBC_DATABASE_URL=jdbc:postgresql://localhost:5432/java_database_name
-```
+Database configurations can be changed at resources/**database.properties**.
 
 ## Deploying to Heroku
 
 ```sh
-$ heroku create
-$ git push heroku main
+$ heroku create spring-app-name
+$ git push heroku master
 $ heroku open
 ```
+Besides, you can configure automatic deploys by using a Github repository branch. See the [Github Integration](https://devcenter.heroku.com/articles/github-integration) article.
 
 ## Documentation
 
 For more information about using Java on Heroku, see these Dev Center articles:
 
 - [Java on Heroku](https://devcenter.heroku.com/categories/java)
+
+## Screenshots
+

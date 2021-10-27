@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template/layout">
+
+<section id="loginSection" class="section-top-padding" layout:fragment="content">
+    <div class="container">
+        <form id="loginForm" name="f" th:action="@{/login}" method="post"
+              class="form-horizontal" aria-labelledby="loginForm">
+
+            <div th:if="${#httpServletRequest.getParameter('error')}" class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="error">
+                    <strong>
+                        <i class="fa fa-exclamation-triangle"></i>
+                        <span th:text="#{login.error.title}"></span>
+                    </strong>
+                    <br/>
+                    <span th:if="${#httpSession.getValue('SPRING_SECURITY_LAST_EXCEPTION').getClass().getSimpleName() eq 'LockedException'}"
+                          th:text="|#{login.error.cause} #{AbstractUserDetailsAuthenticationProvider.locked}|">
+                    </span>
+                    <span th:if="${#httpSession.getValue('SPRING_SECURITY_LAST_EXCEPTION').getClass().getSimpleName() eq 'BadCredentialsException'}"
+                          th:text="|#{login.error.cause} #{AbstractUserDetailsAuthenticationProvider.badCredentials}|">
+                    </span>
+                </div>
+            </div>
+            <div th:if="${#httpServletRequest.getParameter('logout')}" class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong><span th:text="#{login.info.logoutSuccess}"></span></strong>
+            </div>
+
+            <!--/*@thymesVar id="mensagem" type="String"*/-->
+            <div th:if="${!#strings.isEmpty(mensagem)}"
+                 class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <span>
+                    <strong th:text="${mensagem}"></strong>
+                </span>
+            </div>
+
+            <fieldset>
+                <legend><i class="fa fa-sign-in"></i> <span th:text="#{login.title}"></span></legend>
+                <div class="form-group">
+                    <label for="usernameField" class="col-sm-1 control-label"><span th:text="#{login.form.field.email}">
+                    </span></label>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <input type="text" class="form-control"
+                               id="usernameField" name="username" th:placeholder="#{login.form.field.email.placeholder}"/>
+                    </div>
+                    <a data-toggle="tooltip" data-placement="right" title="Ex: youremail@mail.com">
+                        <i class="fa fa-info-circle"></i>
+                    </a>
+                </div>
+                <div class="form-group">
+                    <label for="passwordField" class="col-sm-1 control-label"><span th:text="#{login.form.field.password}">
+                    </span></label>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <input type="password" class="form-control"
+                               id="passwordField" name="password" th:placeholder="#{login.form.field.password.placeholder}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-1 col-md-6 col-sm-12 col-xs-12">
+                        <button type="submit" class="btn btn-default btn-lg btn-block">
+                            <span th:text="#{login.form.button.submit}"></span> <i class="fa fa-sign-in"></i>
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <section id="SignUp" class="col-md-offset-1 col-md-6 col-sm-12 col-xs-12 text-center">
+            <p class="text-muted">
+                <strong><span th:text="#{login.registered.info}"></span> <a th:href="@{/register}">
+                    <span th:text="#{login.registered.here}"></span></a>.</strong>
+            </p>
+        </section>
+    </div><!-- /.container -->
+</section>
+</html>

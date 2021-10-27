@@ -1,0 +1,102 @@
+/* Default colors : http://paletton.com/palette.php?uid=14m0u0khopy7qFicguDmvkps9eJ */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 50px;
+    margin: 0 0 100px;
+
+}
+
+.starter-template {
+    padding: 2.5em 0em;
+    text-align: center;
+}
+
+.section-top-padding {
+    padding-top: 2.5em;
+}
+
+.navbar-purple {
+    background-color: #5E478B;
+    border-color: #41296F;
+}
+
+.navbar-purple .container .navbar-header a,
+.navbar-purple .container #navbar .navbar-nav li a,
+.navbar-purple .container #navbar .navbar-nav .dropdown .dropdown-menu > li a:hover {
+    color: #FFF;
+}
+
+.navbar-purple .container #navbar .navbar-nav .dropdown .dropdown-menu > li a {
+    color: #333;
+}
+
+@media screen and (max-width: 767px) {
+    .navbar-purple .container #navbar .navbar-nav .dropdown .dropdown-menu > li a {
+        color: #FFF;
+    }
+}
+
+.navbar-purple .container .navbar-header a:hover,
+.navbar-purple .container #navbar .navbar-nav li a:hover {
+    color: #EDEDED;
+}
+
+.navbar-purple .container #navbar .navbar-nav li a:hover {
+    background-color: #816DA7;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: #AD9EC8;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFF;
+}
+
+.navbar-purple .navbar-nav > .open > a,
+.navbar-purple .navbar-nav > .open > a:focus,
+.navbar-purple .navbar-nav > .open > a:hover {
+    color: #555;
+    background-color: #816DA7;
+}
+
+.navbar-purple .container #navbar .navbar-nav .dropdown .dropdown-menu > li a:hover {
+    background-color: #AD9EC8;
+}
+
+.dropdown a#userActions {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.list-group-item {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    background-color: #816DA7;
+    border-color: #816DA7;
+}
+
+form fieldset .row .form-group .alert {
+    padding:0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0em;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+}
